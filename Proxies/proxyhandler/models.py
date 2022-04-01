@@ -7,8 +7,8 @@ class Proxies(models.Model):
     Success = models.IntegerField()
     Speed = models.IntegerField("Speed in ms")
     Latency = models.IntegerField("Latency in ms")
-    pub_date = models.DateTimeField('date published')
-    Updated = models.DateTimeField("Updated")
+    # pub_date = models.DateTimeField('date published')
+    # Updated = models.DateTimeField("Updated")
 
 
 
