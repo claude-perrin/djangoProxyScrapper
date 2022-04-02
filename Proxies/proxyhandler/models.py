@@ -9,9 +9,9 @@ from django.utils import timezone
 
 
 class Proxies(models.Model):
-    socket = models.CharField(max_length=32, blank=False, default="")
-    country = models.CharField(max_length=4, default="")
-    anonymity = models.CharField(max_length=12, default="transparent")
+    socket = models.TextField(blank=False, unique=True, default=None)
+    country = models.TextField(default=None)
+    anonymity = models.TextField(default=None)
     success = models.IntegerField(default=0)
     speed = models.IntegerField("Speed in ms", default=0)
     latency = models.IntegerField("Latency in ms", default=0)

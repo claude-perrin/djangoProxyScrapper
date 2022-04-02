@@ -187,7 +187,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1648838468914</updated>
-      <workItem from="1648838470087" duration="22939000" />
+      <workItem from="1648838470087" duration="26909000" />
     </task>
     <servers />
   </component>
@@ -195,22 +195,26 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1648909746637">
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1648911311982">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1648909746637" />
-    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1648909746635">
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1648911311982" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1648911311980">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1648909746635" />
-    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1648909746635">
+    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1648911311980" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1648911311976">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1648909746635" />
-    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1648909746636">
+    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1648911311976" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1648911311981">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1648909746636" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1648911311981" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1648920987842">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1648920987842" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/djangoProxy$freeproxy_scrapper.coverage" NAME="freeproxy_scrapper Coverage Results" MODIFIED="1648852778415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler/scrappers" />
