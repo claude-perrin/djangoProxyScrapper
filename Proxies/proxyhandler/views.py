@@ -4,17 +4,6 @@ from .scrappers import freeproxy_scrapper as fp
 from .models import Proxies
 
 
-#
-# {"IPAddress": proxy['ip'], "Port": proxy['port'], "Country": proxy['country'],
-#                  "Anonymity": proxy['anonymityLevel'], "CratedAt": created_at})
-
-
-# Ip = models.CharField(max_length=15)
-# Port = models.IntegerField()
-# Success = models.IntegerField()
-# Speed = models.IntegerField("Speed in ms")
-# Latency = models.IntegerField("Latency in ms")
-
 def scrap(request):
     fp_proxies = fp.FreeProxyScrapper().scrap()
     for proxy in fp_proxies:
@@ -23,14 +12,8 @@ def scrap(request):
     return HttpResponse(f"{fp_proxies}")
 
 
-# {"Socket": self.socket,
-# "Success": self.successful_connection_counter,
-# "Speed": self.speed,
-# "Latency": self.latency,
-# "Updated": self.updated}
-
 def verify(request):
-    unverified_proxies = [i.__str__() for i in Proxies.objects.all()]  # TODO last updated 1h ago
+    unverified_proxies = [i.__str__() for i in Proxies.objects.all()]  # TODO choose which are last updated 1h ago
     verified_proxies = [
         Proxies.objects.filter(socket=proxy['socket']).update(success=proxy['success'],
                                                               speed=proxy['speed'],
@@ -39,3 +22,8 @@ def verify(request):
     ]
 
     return HttpResponse(f"{verified_proxies}")
+
+
+def working_proxies(request):
+    z = [i.__str__() for i in Proxies.objects.filter(success__gt=0)]
+    return HttpResponse(f"{z}")
