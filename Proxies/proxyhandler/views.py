@@ -20,7 +20,7 @@ def verify(request):
     unverified_proxies = [i.__str__() for i in Proxies.objects.all()]  # TODO choose which are last updated 1h ago
     [Proxies.objects.filter
         (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], latency=proxy['latency'])
-        for proxy in verify_proxies(unverified_proxies)gi
+        for proxy in verify_proxies(unverified_proxies)
     ]
 
     return HttpResponse(f"{Proxies.objects.filter(success__gt=0)}")
