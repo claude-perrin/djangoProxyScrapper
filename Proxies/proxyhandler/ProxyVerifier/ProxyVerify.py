@@ -34,13 +34,12 @@ class Verification:
     speed = 0
     updated = datetime.now().time()
 
-    def __init__(self, ip, port):
-        self.ip = ip
-        self.port = port
+    def __init__(self, socket):
+        self.socket = socket
         self.proxy = self.make_proxy()
 
     def make_proxy(self):
-        proxy = {'http': f'http://{self.ip}:{self.port}'}
+        proxy = {'http': f'http://{self.socket}'}
         proxy['https'] = proxy['http']
         return proxy
 
@@ -50,7 +49,7 @@ class Verification:
             try:
                 start_time = datetime.now()
                 session.get(self.config.test_url, proxies=self.proxy, timeout=self.config.timeout)
-                self.speed = datetime.now() - start_time
+                self.speed = int((datetime.now() - start_time).total_seconds())
             except Exception as ex:
                 raise ProxyNotResponding
 
@@ -68,23 +67,22 @@ class Verification:
             self.latency = result[0]
             self.successful_connection_counter += 1
             print(
-                f'{self.ip}:{self.port}  has a latency of {result[0]} ms (±{result[1]} ms) / '
+                f'{self.socket}  has a latency of {result[0]} ms (±{result[1]} ms) / '
                 f'speed {self.speed} / connections{self.successful_connection_counter}')
 
     def return_proxies(self):  # make satisfiable return dict
-        return {"IPAddress": self.ip,
-                "Port": self.port,
-                "Success": self.successful_connection_counter,
-                "Speed": self.speed,
-                "Latency": self.latency,
-                "Updated": self.updated}
+        return {"socket": self.socket,
+                "success": self.successful_connection_counter,
+                "speed": self.speed,
+                "latency": self.latency,
+                "updated": self.updated}
 
 
 def verify_proxies(proxies):
     verified_proxies = []
     threads = []
     for proxy in tqdm(proxies):
-        verification_obj = Verification(proxy["IPAddress"], proxy["Port"])
+        verification_obj = Verification(proxy)
         verified_proxies.append(verification_obj)
         for _ in range(Verification.config.VERIFICATION_NUMBER):
             thread = Thread(target=verification_obj.verify_proxy_connection)
@@ -99,7 +97,7 @@ def verify_proxies(proxies):
 # 134.119.206.110:1080
 # {"IPAddress": "98.12.195.129", "Port": 443}
 if __name__ == '__main__':
-    list = [{"IPAddress": "68.188.59.198", "Port": 80}]
+    list = ["134.119.206.110:1080"]
     start = datetime.now()
 
     verify_proxies(list * 20)

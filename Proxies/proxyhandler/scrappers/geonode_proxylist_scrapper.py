@@ -24,11 +24,12 @@ class GeonodeProxyScrapper(ProxyInterfaceAdapter):
     # .+?(?=T)+ date
     # [^T]+?(?=Z) time
     def make_proxies(self, raw_proxies):
-        for proxy in raw_proxies['data'][:5]:  #-------------------------------------------------------[:5]
+        for proxy in raw_proxies['data']:
             created_at = self.get_proper_date_format(proxy['created_at'])
             self.Proxies.append(
-                {"IPAddress": proxy['ip'], "Port": proxy['port'], "Country": proxy['country'],
-                 "Anonymity": proxy['anonymityLevel'], "CratedAt": created_at})
+                {"socket": f"{proxy['ip']}:{proxy['port']}", "country": proxy['country'],
+                 "anonymity": proxy['anonymityLevel'], "cratedAt": created_at})
+
 
 if __name__ == '__main__':
     x = GeonodeProxyScrapper().scrap()
