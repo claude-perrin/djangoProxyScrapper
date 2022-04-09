@@ -2,9 +2,6 @@ from datetime import datetime
 
 from django.db import models
 
-#
-# {"IPAddress": proxy['ip'], "Port": proxy['port'], "Country": proxy['country'],
-#                  "Anonymity": proxy['anonymityLevel'], "CratedAt": created_at})
 from django.utils import timezone
 
 
@@ -19,3 +16,6 @@ class Proxies(models.Model):
 
     def __str__(self):
         return self.socket
+
+    def get_info(self):
+        return {"socket": self.socket, "success": self.success, "speed": self.speed, "created_at": self.created_at}

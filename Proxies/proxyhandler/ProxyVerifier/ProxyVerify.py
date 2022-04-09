@@ -49,7 +49,7 @@ class Verification:
             try:
                 start_time = datetime.now()
                 session.get(self.config.test_url, proxies=self.proxy, timeout=self.config.timeout)
-                self.speed = int((datetime.now() - start_time).total_seconds())
+                self.speed = int((datetime.now() - start_time).microseconds)
             except Exception as ex:
                 raise ProxyNotResponding
 

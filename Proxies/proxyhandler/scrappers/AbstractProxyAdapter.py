@@ -29,6 +29,3 @@ class ProxyInterfaceAdapter(abc.ABC):
         Using Regex, fit scrapped data in proper format
         :return: Satisfiable date format
                 """
-
-    # def db_save(self):
-    #     self.DM.save_proxies(self.Proxies)
