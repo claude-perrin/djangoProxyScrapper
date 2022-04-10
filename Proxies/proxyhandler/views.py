@@ -3,6 +3,8 @@ import datetime
 from django.db import IntegrityError
 from django.http import HttpResponse
 
+from django.utils import timezone
+
 from .ProxyVerifier.ProxyVerify import verify_proxies
 from .scrappers import freeproxy_scrapper as fp
 from .models import Proxies
@@ -28,9 +30,9 @@ def scrap(request):
 # TODO load bar during verification
 # TODO take only not updated
 def verify(request):
-    unverified_proxies = [i.__str__() for i in Proxies.objects.filter(created_at__lte=datetime.date.today())]  # TODO choose which are last updated 1h ago
+    unverified_proxies = [i.__str__() for i in Proxies.objects.filter(updated__lte=timezone.now()-timezone.timedelta(0.010))] # 0.010 = 15 min
     [Proxies.objects.filter
-     (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], latency=proxy['latency'])
+     (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], latency=proxy['latency'], updated=timezone.now())
      for proxy in verify_proxies(unverified_proxies)
      ]
 
@@ -49,3 +51,8 @@ def show(request):
         'proxies': working_proxies,
     }
     return render(request, 'proxyhandler/index.html', context)
+
+
+def test(request):
+    proxies = [i for i in Proxies.objects.filter()]
+    return HttpResponse(proxies)

@@ -1,4 +1,3 @@
-from datetime import datetime
 
 from django.db import models
 
@@ -12,6 +11,7 @@ class Proxies(models.Model):
     success = models.IntegerField(default=0)
     speed = models.IntegerField("Speed in ms", default=0)
     latency = models.IntegerField("Latency in ms", default=0)
+    updated = models.DateTimeField('Updated', default=timezone.now)
     created_at = models.DateTimeField('date published', default=timezone.now)
 
     def __str__(self):
