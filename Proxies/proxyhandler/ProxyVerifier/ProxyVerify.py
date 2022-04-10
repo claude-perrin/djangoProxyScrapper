@@ -12,9 +12,7 @@ from urllib3 import Retry
 class Configuration:
     test_url = 'http://127.0.0.1:8000/'
     VERIFICATION_NUMBER = 5
-    timeout = 2
-    to_repeat = 1
-    sample_num = 2
+    timeout = 1.6
     user_agent = {"User-Agent": "Opera/9.80 (X11; Linux x86_64; U; de) Presto/2.2.15 Version/10.00"}
 
 
@@ -26,7 +24,6 @@ class Verification:
     config = Configuration()
     successful_connection_counter = 0
     speed = 0
-    updated = datetime.now().time()
 
     def __init__(self, socket):
         self.socket = socket
@@ -62,8 +59,7 @@ class Verification:
     def return_proxies(self):  # make satisfiable return dict
         return {"socket": self.socket,
                 "success": self.successful_connection_counter,
-                "speed": self.speed,
-                "updated": self.updated}
+                "speed": self.speed}
 
 
 def verify_proxies(proxies):

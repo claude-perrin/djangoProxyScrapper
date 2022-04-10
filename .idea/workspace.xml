@@ -5,10 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proxies/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/ProxyVerify.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/ProxyVerify.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/freeproxy_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/freeproxy_scrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +200,7 @@
       <workItem from="1649076590803" duration="1842000" />
       <workItem from="1649083462247" duration="1275000" />
       <workItem from="1649099936917" duration="4227000" />
-      <workItem from="1649332114707" duration="29811000" />
+      <workItem from="1649332114707" duration="31057000" />
     </task>
     <servers />
   </component>
