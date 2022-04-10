@@ -29,7 +29,8 @@ class FreeProxyScrapper(ProxyInterfaceAdapter):
     def make_proxies(self, raw_proxies):
         for proxy in raw_proxies:
             proxy = proxy.getchildren()
+            protocol = 'http' if proxy[6].text == 'no' else 'https'
             # self.get_proper_date_format(proxy[7].text)
             self.Proxies.append(
                 {"socket": f"{proxy[0].text}:{proxy[1].text}", "country": proxy[2].text,
-                 "anonymity": proxy[4].text})
+                 "anonymity": proxy[4].text, "protocol": protocol})

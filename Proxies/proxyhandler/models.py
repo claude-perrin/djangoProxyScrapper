@@ -1,3 +1,4 @@
+import datetime
 
 from django.db import models
 
@@ -9,13 +10,14 @@ class Proxies(models.Model):
     country = models.TextField(default=None)
     anonymity = models.TextField(default=None)
     success = models.IntegerField(default=0)
-    speed = models.IntegerField("Speed in ms", default=0)
-    latency = models.IntegerField("Latency in ms", default=0)
-    updated = models.DateTimeField('Updated', default=timezone.now)
+    protocol = models.TextField(default='')
+    speed = models.FloatField("Speed in seconds", default=0.0)
+    updated = models.DateTimeField('Updated', default=datetime.datetime.min)
     created_at = models.DateTimeField('date published', default=timezone.now)
 
     def __str__(self):
         return self.socket
 
     def get_info(self):
-        return {"socket": self.socket, "success": self.success, "speed": self.speed, "created_at": self.created_at}
+        return {"socket": self.socket, "success": self.success, "speed": self.speed, 'protocol': self.protocol,
+                "created_at": self.created_at}

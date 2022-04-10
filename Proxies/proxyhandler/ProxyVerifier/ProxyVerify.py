@@ -1,5 +1,4 @@
-import statistics
-import timeit
+import time
 from datetime import datetime
 from threading import Thread
 
@@ -11,26 +10,21 @@ from urllib3 import Retry
 
 
 class Configuration:
-    test_url = 'https://httpbin.org/ip'
+    test_url = 'http://127.0.0.1:8000/'
     VERIFICATION_NUMBER = 5
-    timeout = 1
-    retries = Retry(total=3,
-                    backoff_factor=0.1,
-                    status_forcelist=[429, 500, 502, 503, 504])
-    adapter = HTTPAdapter(max_retries=retries)
+    timeout = 2
     to_repeat = 1
-    sample_num = 3
+    sample_num = 2
+    user_agent = {"User-Agent": "Opera/9.80 (X11; Linux x86_64; U; de) Presto/2.2.15 Version/10.00"}
 
 
 class ProxyNotResponding(Exception):
     pass
 
 
-# checked_at, success, latency, speed, etc.
 class Verification:
     config = Configuration()
     successful_connection_counter = 0
-    latency = 0
     speed = 0
     updated = datetime.now().time()
 
@@ -43,38 +37,32 @@ class Verification:
         proxy['https'] = proxy['http']
         return proxy
 
-    def check(self):
-        with requests.Session() as session:
-            session.mount('http://', self.config.adapter)
-            try:
-                start_time = datetime.now()
-                session.get(self.config.test_url, proxies=self.proxy, timeout=self.config.timeout)
-                self.speed = int((datetime.now() - start_time).microseconds)
-            except Exception as ex:
-                raise ProxyNotResponding
-
-    def evalproxy(self):
-        samples = timeit.repeat(lambda: self.check(), number=self.config.to_repeat, repeat=self.config.sample_num)
-        return (100.0 * statistics.mean(samples),
-                100.0 * statistics.stdev(samples))
-
     def verify_proxy_connection(self):
         try:
-            result = self.evalproxy()
+            self.check()
         except ProxyNotResponding:
             print(f'{self.proxy["http"]} is not responding')
         else:
-            self.latency = result[0]
             self.successful_connection_counter += 1
-            print(
-                f'{self.socket}  has a latency of {result[0]} ms (±{result[1]} ms) / '
-                f'speed {self.speed} / connections{self.successful_connection_counter}')
+            print(f'{self.socket} has speed {self.speed} / connections{self.successful_connection_counter}')
+
+    # TODO custom speed check
+    def check(self):
+        with requests.Session() as session:
+            start_time = time.perf_counter()
+            try:
+                session.get(self.config.test_url, proxies=self.proxy, timeout=self.config.timeout,
+                            headers=self.config.user_agent)
+            except Exception as ex:
+                print(ex)
+                raise ProxyNotResponding
+            else:
+                self.speed = round(float((time.perf_counter() - start_time)), 3)
 
     def return_proxies(self):  # make satisfiable return dict
         return {"socket": self.socket,
                 "success": self.successful_connection_counter,
                 "speed": self.speed,
-                "latency": self.latency,
                 "updated": self.updated}
 
 
@@ -93,14 +81,8 @@ def verify_proxies(proxies):
     return [p.return_proxies() for p in verified_proxies]
 
 
-# TODO  separate by functions, make tri block cleaner
-# 134.119.206.110:1080
-# {"IPAddress": "98.12.195.129", "Port": 443}
 if __name__ == '__main__':
-    list = ["134.119.206.110:1080"]
-    start = datetime.now()
-
-    verify_proxies(list * 20)
-
-    print(datetime.now() - start)
-# TODO CONCURRENT.FUTURES
+    list = ["182.160.121.99:10800"]
+    start = time.perf_counter()
+    print(verify_proxies(list))
+    print(time.perf_counter() - start)

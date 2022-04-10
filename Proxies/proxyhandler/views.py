@@ -16,7 +16,8 @@ def scrap(request):
     fp_proxies = fp.FreeProxyScrapper().scrap()
     for proxy in fp_proxies:
         try:
-            Proxies(socket=proxy["socket"], country=proxy["country"], anonymity=proxy["anonymity"]).save()
+            Proxies(socket=proxy["socket"], country=proxy["country"], anonymity=proxy["anonymity"],
+                    protocol=proxy["protocol"]).save()
         except IntegrityError:
             pass
 
@@ -28,11 +29,12 @@ def scrap(request):
 
 
 # TODO load bar during verification
-# TODO take only not updated
 def verify(request):
-    unverified_proxies = [i.__str__() for i in Proxies.objects.filter(updated__lte=timezone.now()-timezone.timedelta(0.010))] # 0.010 = 15 min
+    unverified_proxies = [i.__str__() for i in Proxies.objects.filter(
+        updated__lte=timezone.now() - timezone.timedelta(0.010))]  # 0.010 = 15 min
     [Proxies.objects.filter
-     (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], latency=proxy['latency'], updated=timezone.now())
+     (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'],
+                                     updated=timezone.now())
      for proxy in verify_proxies(unverified_proxies)
      ]
 
@@ -54,5 +56,6 @@ def show(request):
 
 
 def test(request):
-    proxies = [i for i in Proxies.objects.filter()]
+    proxies = [i for i in Proxies.objects.all().delete()]
+
     return HttpResponse(proxies)
