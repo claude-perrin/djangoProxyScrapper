@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="745cfd21-aaaa-4340-9192-fa7204e3e8fa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/ProxyVerify.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/ProxyVerify.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/hidemyname_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/hidemyname_scrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,17 +35,21 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ViktorsCoolWebsite/Complete_Personal_Portfolio_Website_-_Html_Css_Javascript/Complete Personal Portfolio Website - Html, Css &amp; Javascript" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ViktorsCoolWebsite/Complete_Personal_Portfolio_Website_-_Html_Css_Javascript/Complete Personal Portfolio Website - Html, Css &amp; Javascript" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Proxies/proxyhandler/static" />
+      <recent name="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler" />
       <recent name="$PROJECT_DIR$/Proxies" />
       <recent name="$PROJECT_DIR$/Proxies/proxyhandler" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="Python.ProxyVerify">
@@ -199,6 +210,11 @@
       <workItem from="1649083462247" duration="1275000" />
       <workItem from="1649099936917" duration="4227000" />
       <workItem from="1649332114707" duration="31700000" />
+      <workItem from="1649710792208" duration="860000" />
+      <workItem from="1650633462425" duration="37000" />
+      <workItem from="1650709908160" duration="4019000" />
+      <workItem from="1650806577891" duration="2880000" />
+      <workItem from="1650978031095" duration="2992000" />
     </task>
     <servers />
   </component>
@@ -206,25 +222,25 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1649678091007">
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1650717211937">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1649678091007" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1650717211937" />
     <state width="1638" height="364" key="GridCell.Tab.0.bottom/0.25.1680.1025@0.25.1680.1025" timestamp="1649364753414" />
-    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1649678091005">
+    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1650717211935">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1649678091005" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1650717211935" />
     <state width="1638" height="364" key="GridCell.Tab.0.center/0.25.1680.1025@0.25.1680.1025" timestamp="1649364753412" />
-    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1649678091002">
+    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1650717211931">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1649678091002" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1650717211931" />
     <state width="1638" height="364" key="GridCell.Tab.0.left/0.25.1680.1025@0.25.1680.1025" timestamp="1649364753411" />
-    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1649678091006">
+    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1650717211936">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1649678091006" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1650717211936" />
     <state width="1638" height="364" key="GridCell.Tab.0.right/0.25.1680.1025@0.25.1680.1025" timestamp="1649364753413" />
     <state width="1638" height="364" key="GridCell.Tab.1.bottom" timestamp="1649587464853">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -242,11 +258,15 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1638" height="364" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1649587464852" />
-    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1649596123985">
+    <state x="359" y="175" key="SettingsEditor" timestamp="1650978223317">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="359" y="175" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1650978223317" />
+    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1650716693325">
       <screen x="0" y="25" width="1680" height="1025" />
     </state>
-    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1649082413100" />
-    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.25.1680.1025@0.25.1680.1025" timestamp="1649596123985" />
+    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1650716323385" />
+    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.25.1680.1025@0.25.1680.1025" timestamp="1650716693325" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1649364125729">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -256,7 +276,7 @@
     <SUITE FILE_PATH="coverage/djangoProxy$freeproxy_scrapper.coverage" NAME="freeproxy_scrapper Coverage Results" MODIFIED="1648852778415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler/scrappers" />
     <SUITE FILE_PATH="coverage/djangoProxy$geonode_proxylist_scrapper.coverage" NAME="geonode_proxylist_scrapper Coverage Results" MODIFIED="1648849090408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler/scrappers" />
     <SUITE FILE_PATH="coverage/djangoProxy$urls.coverage" NAME="urls Coverage Results" MODIFIED="1648841167497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/scrapper" />
-    <SUITE FILE_PATH="coverage/djangoProxy$ProxyVerify.coverage" NAME="ProxyVerify Coverage Results" MODIFIED="1649625924527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier" />
+    <SUITE FILE_PATH="coverage/djangoProxy$ProxyVerify.coverage" NAME="ProxyVerify Coverage Results" MODIFIED="1650716161383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier" />
     <SUITE FILE_PATH="coverage/djangoProxy$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1649589610220" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/djangoProxy$scratch_1.coverage" NAME="scratch_1 Coverage Results" MODIFIED="1649106205724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/djangoProxy$models__1_.coverage" NAME="models (1) Coverage Results" MODIFIED="1648897349185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler" />

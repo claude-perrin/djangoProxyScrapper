@@ -1,37 +1,87 @@
 <!DOCTYPE html>
-<html>
-<style>
-    table, th, td {
-        font-family: "Apple SD Gothic Neo", serif;
-        border: 1px solid black;
-    }
-</style>
-<body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Responsive Personal Portfolio Website - Html, Css & Javascript</title>
+    <link rel="stylesheet" href="../../static/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+  </head>
+  <body>
 
-<h1 style="font-family: 'Apple SD Gothic Neo',serif">{{main_page}}</h1>
+    <!--=======Light/Dark theme button=======-->
+    <div class="theme-btn flex-center">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+    </div>
 
-<table style="width:100%">
-    <tr>
-        <th style="font-size: 150%"> Socket</th>
-        <th style="font-size: 150%"> Success</th>
-        <th style="font-size: 150%"> Speed [s]</th>
-        <th style="font-size: 150%"> Protocol</th>
-        <th style="font-size: 150%"> Created</th>
+   
 
-    </tr>
+    <!--=======Services section=======-->
+   <section class="services section" id="services">
+      <div class="container flex-center">
+        <h2 class="section-title-02">Proxy Scrapper</h2>
+        <div class="content">
+          <ul class="service-list">
+            <li class="service-container">
+              <div class="service-card">
+                <i class="fas fa-cog"></i>
+                <h3>Scrap</h3>
+                <a target="_blank" class="btn" href="scrap"> Execute </a>
+              </div>
+            </li>
+            <li class="service-container">
+              <div class="service-card">
+                <i class="fas fa-search"></i>
+                <h3>Verify</h3>
+                <a target="_blank" class="btn" href="verify"> Execute </a>
+              </div>
+            </li>
+            <li class="service-container">
+              <div class="service-card">
+                <i class="fas fa-file-code"></i>
+                <h3>Show Proxies</h3>
+                <a target="_blank" class="btn" href="show"> Execute </a>
+              </div>
+            </li>
+            <li class="service-container">
+              <div class="service-card">
+                <i class="fas fa-align-left"></i>
+                <h3>Statistics</h3>
+                <a target="_blank" class="btn" href=""> Execute </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    {% for proxy in proxies %}
-    <tr>
-        {% for key, item in proxy.items %}
-        <th>
-            <a>{{item}}</a>
-        </th>
-        {% endfor %}
+    <div class="get-in-touch sub-section">
+      <div class="container">
+        <div class="content flex-center">
+          <div class="contact-card flex-center">
+            <div class="title">
+              <h3>Download</h3>
+              <h2>Proxies list</h2>
+            </div>
+            <ul class="contact-list">
+              <li>
+                <a style="white-space: pre; " href="" class="btn">.pdf  <i class="fas fa-download"></i></a>
+                </li>
+                <li>
+                <a style="white-space: pre; " href="" class="btn">.txt   <i class="fas fa-download"></i></a>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    </tr>
-    {% endfor %}
+    <!--=======External scripts=======-->
+    <script src="../../../../ViktorsCoolWebsite/Complete_Personal_Portfolio_Website_-_Html_Css_Javascript/Complete%20Personal%20Portfolio%20Website%20-%20Html,%20Css%20&%20Javascript/js/swiper-bundle.min.js"></script>
+    <script src="../../../../ViktorsCoolWebsite/Complete_Personal_Portfolio_Website_-_Html_Css_Javascript/Complete%20Personal%20Portfolio%20Website%20-%20Html,%20Css%20&%20Javascript/js/main.js"></script>
 
-</table>
-</body>
+  </body>
 </html>
-

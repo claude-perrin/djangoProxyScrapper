@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table, th, td {
+        font-family: "Apple SD Gothic Neo", serif;
+        border: 1px solid black;
+    }
+</style>
+<body>
+
+<h1 style="font-family: 'Apple SD Gothic Neo',serif">{{main_page}}</h1>
+
+<table style="width:100%">
+    <tr>
+        <th style="font-size: 150%"> Socket</th>
+        <th style="font-size: 150%"> Success</th>
+        <th style="font-size: 150%"> Speed [s]</th>
+        <th style="font-size: 150%"> Protocol</th>
+        <th style="font-size: 150%"> Created</th>
+
+    </tr>
+
+    {% for proxy in proxies %}
+    <tr>
+        {% for key, item in proxy.items %}
+        <th>
+            <a>{{item}}</a>
+        </th>
+        {% endfor %}
+
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>
+

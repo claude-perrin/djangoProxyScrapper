@@ -5,9 +5,7 @@ from threading import Thread
 from tqdm import tqdm
 from .config import *
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3 import Retry
-
+from concurrent.futures import ThreadPoolExecutor
 
 class ProxyNotResponding(Exception):
     pass
@@ -35,7 +33,6 @@ class Verification:
             self.successful_connection_counter += 1
             print(f'{self.socket} has speed {self.speed} / connections{self.successful_connection_counter}')
 
-    # TODO custom speed check
     def check(self):
         with requests.Session() as session:
             start_time = time.perf_counter()
@@ -68,7 +65,7 @@ def verify_proxies(proxies):
         x.join()
     return [p.return_proxies() for p in verified_proxies]
 
-
+#TODO manage threadpool
 if __name__ == '__main__':
     list = ["182.160.121.99:10800"]
     start = time.perf_counter()

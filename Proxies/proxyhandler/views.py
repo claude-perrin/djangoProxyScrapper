@@ -12,6 +12,11 @@ from .models import Proxies
 from django.shortcuts import render
 
 
+def main_page(request):
+    # return HttpResponse("TEST")
+    return render(request, 'proxyhandler/index.html')
+
+
 def scrap(request):
     fp_proxies = fp.FreeProxyScrapper().scrap()
     for proxy in fp_proxies:
@@ -25,7 +30,7 @@ def scrap(request):
         'main_page': "Scrapped proxies",
         'proxies': fp_proxies,
     }
-    return render(request, 'proxyhandler/index.html', context)
+    return render(request, 'proxyhandler/show.html', context)
 
 
 # TODO load bar during verification
@@ -33,17 +38,15 @@ def verify(request):
     unverified_proxies = [i.__str__() for i in Proxies.objects.filter(
         updated__lte=timezone.now() - timezone.timedelta(0.010))]  # 0.010 = 15 min
     [Proxies.objects.filter
-     (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'],
-                                     updated=timezone.now())
-     for proxy in verify_proxies(unverified_proxies)
-     ]
+     (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], updated=timezone.now()) for proxy in
+     verify_proxies(unverified_proxies)]
 
     context = {
         'main_page': "Proxies which passed verification",
         'proxies': Proxies.objects.filter(success__gt=0),
     }
 
-    return render(request, 'proxyhandler/index.html', context)
+    return render(request, 'proxyhandler/show.html', context)
 
 
 def show(request):
@@ -52,7 +55,7 @@ def show(request):
         'main_page': "Proxies which are working",
         'proxies': working_proxies,
     }
-    return render(request, 'proxyhandler/index.html', context)
+    return render(request, 'proxyhandler/show.html', context)
 
 
 def test(request):
