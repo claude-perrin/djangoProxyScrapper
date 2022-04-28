@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 from django.utils import timezone
 
-from .ProxyVerifier.ProxyVerify import verify_proxies
+from .ProxyVerifier.ProxyVerify import ProxyVerifier
 from .scrappers import freeproxy_scrapper as fp
 from .models import Proxies
 
@@ -37,9 +37,12 @@ def scrap(request):
 def verify(request):
     unverified_proxies = [i.__str__() for i in Proxies.objects.filter(
         updated__lte=timezone.now() - timezone.timedelta(0.010))]  # 0.010 = 15 min
+
+    verified_proxies = ProxyVerifier(unverified_proxies).run().get_proxies()
+
     [Proxies.objects.filter
-     (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], updated=timezone.now()) for proxy in
-     verify_proxies(unverified_proxies)]
+     (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], updated=timezone.now()) for proxy in verified_proxies
+     ]
 
     context = {
         'main_page': "Proxies which passed verification",
