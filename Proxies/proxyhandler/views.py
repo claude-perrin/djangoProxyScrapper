@@ -13,7 +13,6 @@ from django.shortcuts import render
 
 
 def main_page(request):
-    # return HttpResponse("TEST")
     return render(request, 'proxyhandler/index.html')
 
 
@@ -39,6 +38,7 @@ def verify(request):
         updated__lte=timezone.now() - timezone.timedelta(0.010))]  # 0.010 = 15 min
 
     verified_proxies = ProxyVerifier(unverified_proxies).run().get_proxies()
+    print(verified_proxies)
 
     [Proxies.objects.filter
      (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], updated=timezone.now()) for proxy in verified_proxies
@@ -46,7 +46,7 @@ def verify(request):
 
     context = {
         'main_page': "Proxies which passed verification",
-        'proxies': Proxies.objects.filter(success__gt=0),
+        'proxies': [i.get_info() for i in Proxies.objects.filter(success__gt=0)],
     }
 
     return render(request, 'proxyhandler/show.html', context)
@@ -61,7 +61,10 @@ def show(request):
     return render(request, 'proxyhandler/show.html', context)
 
 
+def download(request):
+    working_proxies = Proxies.objects.filter(success__gt=0)
+
+
 def test(request):
     proxies = [i for i in Proxies.objects.all().delete()]
-
-    return HttpResponse(proxies)
+    return HttpResponse("done")

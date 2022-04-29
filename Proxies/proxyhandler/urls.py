@@ -8,5 +8,6 @@ urlpatterns = [
     path('scrap', views.scrap, name='scrap'),
     path('verify', views.verify, name='verify'),
     path('show', views.show, name='working_proxies'),
+    path('download', views.download, name='download'),
     path('test', views.test, name='test')
 ]

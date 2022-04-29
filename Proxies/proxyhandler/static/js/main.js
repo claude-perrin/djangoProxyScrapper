@@ -44,20 +44,6 @@ portfolioCloseBtns.forEach((portfolioCloseBtn) => {
     });
 });
 
-//Our clients - Swiper
-var swiper = new Swiper(".client-swiper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-});
 
 //Website dark/light theme
 const themeBtn = document.querySelector(".theme-btn");
@@ -81,36 +67,7 @@ if(savedTheme){
     themeBtn.classList[savedIcon === "sun" ? "add" : "remove"]("sun");
 }
 
-//Scroll to top button
-const scrollTopBtn = document.querySelector(".scrollToTop-btn");
 
-window.addEventListener("scroll", function(){
-    scrollTopBtn.classList.toggle("active", window.scrollY > 500);
-});
-
-scrollTopBtn.addEventListener("click", () => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-});
-
-//Navigation menu items active on page scroll
-window.addEventListener("scroll", () => {
-    const sections = document.querySelectorAll("section");
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(current => {
-        let sectionHeight = current.offsetHeight;
-        let sectionTop = current.offsetTop - 50;
-        let id = current.getAttribute("id");
-        
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector(".nav-items a[href*=" + id + "]").classList.add("active");
-        }
-        else{
-            document.querySelector(".nav-items a[href*=" + id + "]").classList.remove("active");
-        }
-    });
-});
 
 //Responsive navigation menu toggle
 const menuBtn = document.querySelector(".nav-menu-btn");

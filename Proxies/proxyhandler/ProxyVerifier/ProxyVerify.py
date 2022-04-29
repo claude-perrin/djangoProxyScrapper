@@ -8,12 +8,8 @@ import aiohttp
 from lxml.html import fromstring
 from tqdm import tqdm
 
-# from config import *
+from .config import *
 
-TEST_URL = 'http://127.0.0.1:8000/'
-VERIFICATION_NUMBER = 5
-TIMEOUT = 4
-USER_AGENT = {"User-Agent": "Opera/9.80 (X11; Linux x86_64; U; de) Presto/2.2.15 Version/10.00"}
 
 
 class ProxyNotResponding(Exception):
@@ -21,12 +17,12 @@ class ProxyNotResponding(Exception):
         super().__init__(f'{proxy} is not responding')
 
 
-# timeit decorator async
 def timeit(func):
     async def process(func, *args, **params):
         try:
             await func(*args, **params)
         except Exception as exc:
+            print(exc)
             raise RuntimeError
 
     async def helper(*args, **params):
@@ -83,9 +79,7 @@ class ProxyVerifier:
         return self._verified_proxies
 
 
-# 17.185218759 s   -    synch way 100
 # asyncio.run same as loop.run_until_complete
-# TODO successful_connection counter
 if __name__ == '__main__':
     # print(TEST_URL)
     list = ["172.67.181.8:80"]
