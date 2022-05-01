@@ -43,7 +43,6 @@ def verify(request):
     [Proxies.objects.filter
      (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], updated=timezone.now()) for proxy in verified_proxies
      ]
-
     context = {
         'main_page': "Proxies which passed verification",
         'proxies': [i.get_info() for i in Proxies.objects.filter(success__gt=0)],
