@@ -5,20 +5,18 @@ import asyncio
 import aiohttp
 from tqdm import tqdm
 
-# from .config import *
-
-TEST_URL = 'http://127.0.0.1:8000/'
-VERIFICATION_NUMBER = 5
-TIMEOUT = 4
-USER_AGENT = {"User-Agent": "Opera/9.80 (X11; Linux x86_64; U; de) Presto/2.2.15 Version/10.00"}
+from .config import *
 
 
-class ProxyNotResponding(Exception):
-    def __init__(self, proxy):
-        super().__init__(f'{proxy} is not responding')
+# TEST_URL = 'http://127.0.0.1:8000/'
+# VERIFICATION_NUMBER = 5
+# TIMEOUT = 4
+# USER_AGENT = {"User-Agent": "Opera/9.80 (X11; Linux x86_64; U; de) Presto/2.2.15 Version/10.00"}
 
 
 class ProxyVerifier:
+    ProxyNotResponding = (asyncio.TimeoutError, aiohttp.ClientError)
+
     def __init__(self, proxies_to_check):
         self.proxies_to_check = proxies_to_check
         self._verified_proxies = []
@@ -37,26 +35,35 @@ class ProxyVerifier:
             await asyncio.gather(*to_verify_proxies_generator)
 
     async def check_proxy(self, client, socket):
-        responses_speed = await self.make_request(client, url=TEST_URL, proxy=self.to_proxy(socket))
+        response_speed_tracker_start = datetime.now()
+
+        response = await self.make_request(client, url=TEST_URL, proxy=self.to_proxy(socket))
+
+        response_speed = (datetime.now() - response_speed_tracker_start).total_seconds()
 
         verified_proxy = {
             "socket": socket,
-            "success": 1 if responses_speed is not False else 0,
-            "speed": round(responses_speed, 3)
+            "success": 1 if response else 0,
+            "speed": round(response_speed, 3) if response else 0,
         }
         self._verified_proxies.append(verified_proxy)
 
-    @staticmethod
-    async def make_request(client, *, proxy, url):
-        timer_begin = datetime.now()
+    async def make_request(self, client, *, proxy, url):
         try:
-            await client.get(url, proxy=proxy, timeout=TIMEOUT)
-        except (aiohttp.ClientError, asyncio.TimeoutError):
-            return False
-        else:
-            return (datetime.now() - timer_begin).total_seconds()
+            return await client.get(url, proxy=proxy, timeout=TIMEOUT)
+        except self.ProxyNotResponding:
+            return -1
 
-    def get_proxies(self):
+    @property
+    def failed_proxies(self):
+        return {i for i in self._verified_proxies if i['success'] == 0}
+
+    @property
+    def succeeded_proxies(self):
+        return {i for i in self._verified_proxies if i['success'] > 0}
+
+    @property
+    def verified_proxies(self):
         return self._verified_proxies
 
 
@@ -66,5 +73,5 @@ if __name__ == '__main__':
     start = time.perf_counter()
     v = ProxyVerifier(list * 100)
     v.run()
-    print(v.get_proxies())
+    print(v.verified_proxies)
     print(time.perf_counter() - start)

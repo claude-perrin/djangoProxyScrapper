@@ -8,6 +8,7 @@ from django.utils import timezone
 from .ProxyVerifier.ProxyVerify import ProxyVerifier
 from .scrappers import freeproxy_scrapper as fp
 from .models import Proxies
+from .FileManager import FileManager
 
 from django.shortcuts import render
 
@@ -37,12 +38,11 @@ def verify(request):
     unverified_proxies = [i.__str__() for i in Proxies.objects.filter(
         updated__lte=timezone.now() - timezone.timedelta(0.010))]  # 0.010 = 15 min
 
-    verified_proxies = ProxyVerifier(unverified_proxies).run().get_proxies()
-    print(verified_proxies)
+    verified_proxies = ProxyVerifier(unverified_proxies).run().verified_proxies
 
-    [Proxies.objects.filter
-     (socket=proxy['socket']).update(success=proxy['success'], speed=proxy['speed'], updated=timezone.now()) for proxy in verified_proxies
-     ]
+    [Proxies.objects.filter(socket=proxy['socket']).
+         update(success=proxy['success'], speed=proxy['speed'], updated=timezone.now()) for proxy in verified_proxies]
+
     context = {
         'main_page': "Proxies which passed verification",
         'proxies': [i.get_info() for i in Proxies.objects.filter(success__gt=0)],
@@ -60,8 +60,11 @@ def show(request):
     return render(request, 'proxyhandler/show.html', context)
 
 
-def download(request):
-    working_proxies = Proxies.objects.filter(success__gt=0)
+def download(request, method):
+    data = [i.__str__() + '\n' for i in Proxies.objects.filter(success__gt=0)]
+    response = HttpResponse(data, content_type='application/text charset=utf-8')
+    response['Content-Disposition'] = 'attachment; filename="working_proxies.txt"'
+    return response
 
 
 def test(request):

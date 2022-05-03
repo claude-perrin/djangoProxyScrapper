@@ -9,10 +9,23 @@ class FileManager(abc.ABC):
 
 
 class TxtFileManager(FileManager):
-    def __init__(self, objects, *, method='txt'):
+    def __init__(self, objects):
         self.objects = objects
-        self.method = method
 
     def write(self):
-        with open('txt.txt','w') as file:
+        with open('txt.txt', 'w') as file:
             file.write(self.objects)
+
+
+class PdfFileManager(FileManager):
+    def __init__(self, objects):
+        self.objects = objects
+
+    def write(self):
+        with open('txt.txt', 'w') as file:
+            [file.write(i) for i in self.objects]
+
+
+get_file_manager = {"txt": TxtFileManager,
+                    "pdf": PdfFileManager
+                    }
