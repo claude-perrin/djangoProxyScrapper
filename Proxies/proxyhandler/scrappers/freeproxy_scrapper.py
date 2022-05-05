@@ -5,7 +5,9 @@ from .AbstractProxyAdapter import ProxyInterfaceAdapter
 
 class FreeProxyScrapper(ProxyInterfaceAdapter):
     URL = 'https://free-proxy-list.net/'
-    Proxies = list()
+
+    def __init__(self):
+        self.proxies = list()
 
     def scrap(self):
         html = requests.get(self.URL)

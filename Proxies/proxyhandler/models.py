@@ -20,4 +20,8 @@ class Proxies(models.Model):
 
     def get_info(self):
         return {"socket": self.socket, "success": self.success, "speed": self.speed, 'protocol': self.protocol,
-                "created_at": self.created_at}
+                "updated": self.updated}
+
+
+    def get_socket(self):
+        return self.socket

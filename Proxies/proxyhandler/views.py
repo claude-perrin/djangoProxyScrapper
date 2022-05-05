@@ -1,9 +1,11 @@
+import csv
 import datetime
 
 from django.db import IntegrityError
 from django.http import HttpResponse
 
 from django.utils import timezone
+from django.views import View
 
 from .ProxyVerifier.ProxyVerify import ProxyVerifier
 from .scrappers import freeproxy_scrapper as fp
@@ -24,7 +26,7 @@ def scrap(request):
             Proxies(socket=proxy["socket"], country=proxy["country"], anonymity=proxy["anonymity"],
                     protocol=proxy["protocol"]).save()
         except IntegrityError:
-            pass
+            pass  # TODO handle error
 
     context = {
         'main_page': "Scrapped proxies",
@@ -35,13 +37,14 @@ def scrap(request):
 
 # TODO load bar during verification
 def verify(request):
-    unverified_proxies = [i.__str__() for i in Proxies.objects.filter(
+    unverified_proxies = [i.socket for i in Proxies.objects.filter(
         updated__lte=timezone.now() - timezone.timedelta(0.010))]  # 0.010 = 15 min
 
     verified_proxies = ProxyVerifier(unverified_proxies).run().verified_proxies
 
-    [Proxies.objects.filter(socket=proxy['socket']).
-         update(success=proxy['success'], speed=proxy['speed'], updated=timezone.now()) for proxy in verified_proxies]
+    for proxy in verified_proxies:
+        proxy_object = Proxies.objects.filter(socket=proxy['socket'])
+        proxy_object.update(success=proxy['success'], speed=proxy['speed'], updated=timezone.now())
 
     context = {
         'main_page': "Proxies which passed verification",
@@ -60,11 +63,31 @@ def show(request):
     return render(request, 'proxyhandler/show.html', context)
 
 
-def download(request, method):
-    data = [i.__str__() + '\n' for i in Proxies.objects.filter(success__gt=0)]
-    response = HttpResponse(data, content_type='application/text charset=utf-8')
-    response['Content-Disposition'] = 'attachment; filename="working_proxies.txt"'
-    return response
+class Downloader(View):
+
+    def get(self, request, method):
+        file_manager = {"txt": self.download_txt,
+                        "csv": self.download_csv}
+        return file_manager[method]()
+
+    @staticmethod
+    def download_csv():
+        data = [{i.socket} for i in Proxies.objects.filter(success__gt=0)]
+        response = HttpResponse(
+            content_type='text/csv',
+            headers={'Content-Disposition': 'attachment; filename="working_proxies.csv"'},
+        )
+        writer = csv.writer(response)
+        writer.writerows(data)
+
+        return response
+
+    @staticmethod
+    def download_txt():  # TODO class view
+        data = {i.socket + '\n' for i in Proxies.objects.filter(success__gt=0)}
+        response = HttpResponse(data, content_type='application/text charset=utf-8')
+        response['Content-Disposition'] = 'attachment; filename="working_proxies.txt"'
+        return response
 
 
 def test(request):

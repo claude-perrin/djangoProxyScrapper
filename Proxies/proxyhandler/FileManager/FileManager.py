@@ -17,7 +17,7 @@ class TxtFileManager(FileManager):
             file.write(self.objects)
 
 
-class PdfFileManager(FileManager):
+class CsvFileManager(FileManager):
     def __init__(self, objects):
         self.objects = objects
 
@@ -25,7 +25,3 @@ class PdfFileManager(FileManager):
         with open('txt.txt', 'w') as file:
             [file.write(i) for i in self.objects]
 
-
-get_file_manager = {"txt": TxtFileManager,
-                    "pdf": PdfFileManager
-                    }

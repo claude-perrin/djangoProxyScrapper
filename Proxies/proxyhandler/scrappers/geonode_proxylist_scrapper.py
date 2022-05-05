@@ -6,7 +6,9 @@ import re
 
 class GeonodeProxyScrapper(ProxyInterfaceAdapter):
     URL = 'https://proxylist.geonode.com/api/proxy-list?limit=200&page=1&sort_by=lastChecked&sort_type=desc'
-    Proxies = list()
+
+    def __init__(self):
+        self.proxies = list()
 
     def scrap(self):
         response = requests.get(self.URL)
