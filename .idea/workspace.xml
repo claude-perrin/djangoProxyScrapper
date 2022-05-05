@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="745cfd21-aaaa-4340-9192-fa7204e3e8fa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/FileManager/FileManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/FileManager/FileManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/freeproxy_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/freeproxy_scrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/geonode_proxylist_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/geonode_proxylist_scrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +211,7 @@
       <workItem from="1650806577891" duration="2880000" />
       <workItem from="1650978031095" duration="35871000" />
       <workItem from="1651255621012" duration="5932000" />
-      <workItem from="1651403024890" duration="24923000" />
+      <workItem from="1651403024890" duration="25264000" />
     </task>
     <servers />
   </component>

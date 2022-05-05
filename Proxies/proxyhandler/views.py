@@ -83,7 +83,7 @@ class Downloader(View):
         return response
 
     @staticmethod
-    def download_txt():  # TODO class view
+    def download_txt():  
         data = {i.socket + '\n' for i in Proxies.objects.filter(success__gt=0)}
         response = HttpResponse(data, content_type='application/text charset=utf-8')
         response['Content-Disposition'] = 'attachment; filename="working_proxies.txt"'
