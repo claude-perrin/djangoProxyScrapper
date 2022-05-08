@@ -2,15 +2,14 @@ import csv
 import datetime
 
 from django.db import IntegrityError
-from django.http import HttpResponse
+from django.http import HttpResponse,  FileResponse
 
 from django.utils import timezone
-from django.views import View
 
 from .ProxyVerifier.ProxyVerify import ProxyVerifier
 from .scrappers import freeproxy_scrapper as fp
 from .models import Proxies
-from .FileManager import FileManager
+from . import tasks
 
 from django.shortcuts import render
 
@@ -63,33 +62,33 @@ def show(request):
     return render(request, 'proxyhandler/show.html', context)
 
 
-class Downloader(View):
+def download_csv(request):
+    data = [{i.socket} for i in Proxies.objects.filter(success__gt=0)]
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="working_proxies.csv"'},
+    )
+    writer = csv.writer(response)
+    writer.writerows(data)
 
-    def get(self, request, method):
-        file_manager = {"txt": self.download_txt,
-                        "csv": self.download_csv}
-        return file_manager[method]()
+    return response
 
-    @staticmethod
-    def download_csv():
-        data = [{i.socket} for i in Proxies.objects.filter(success__gt=0)]
-        response = HttpResponse(
-            content_type='text/csv',
-            headers={'Content-Disposition': 'attachment; filename="working_proxies.csv"'},
-        )
-        writer = csv.writer(response)
-        writer.writerows(data)
 
-        return response
-
-    @staticmethod
-    def download_txt():  
-        data = {i.socket + '\n' for i in Proxies.objects.filter(success__gt=0)}
-        response = HttpResponse(data, content_type='application/text charset=utf-8')
-        response['Content-Disposition'] = 'attachment; filename="working_proxies.txt"'
-        return response
+def download_txt(request):
+    data = {i.socket + '\n' for i in Proxies.objects.filter(success__gt=0)}
+    response = FileResponse(data, content_type='application/text charset=utf-8')
+    response['Content-Disposition'] = 'attachment; filename="working_proxies.txt"'
+    return response
 
 
 def test(request):
+    # obj = Proxies.objects.get(socket="202.162.37.68:8080")
+    # x = obj.success + 1
+    # Proxies.objects.filter(socket="202.162.37.68:8080").update(success=x)
     proxies = [i for i in Proxies.objects.all().delete()]
     return HttpResponse("done")
+
+#
+# def celery(request):
+#     response = tasks.add.delay(5,5)
+#     return HttpResponse(response.get(propagate=False))

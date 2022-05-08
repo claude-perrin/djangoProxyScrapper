@@ -1,6 +1,6 @@
 import requests
 
-from AbstractProxyAdapter import ProxyInterfaceAdapter
+from .AbstractProxyAdapter import ProxyInterfaceAdapter
 import re
 
 
