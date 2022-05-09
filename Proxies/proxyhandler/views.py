@@ -1,5 +1,4 @@
 import csv
-import datetime
 
 from django.db import IntegrityError
 from django.http import HttpResponse,  FileResponse
@@ -7,9 +6,8 @@ from django.http import HttpResponse,  FileResponse
 from django.utils import timezone
 
 from .ProxyVerifier.ProxyVerify import ProxyVerifier
-from .scrappers import freeproxy_scrapper as fp
+from .Scraper import freeproxy_scrapper as fp
 from .models import Proxies
-from . import tasks
 
 from django.shortcuts import render
 
@@ -36,8 +34,7 @@ def scrap(request):
 
 # TODO load bar during verification
 def verify(request):
-    unverified_proxies = [i.socket for i in Proxies.objects.filter(
-        updated__lte=timezone.now() - timezone.timedelta(0.010))]  # 0.010 = 15 min
+    unverified_proxies = [i.socket for i in Proxies.objects.filter(updated__lte=timezone.now() - timezone.timedelta(0.010))]  # 0.010 = 15 min
 
     verified_proxies = ProxyVerifier(unverified_proxies).run().verified_proxies
 
@@ -87,8 +84,3 @@ def test(request):
     # Proxies.objects.filter(socket="202.162.37.68:8080").update(success=x)
     proxies = [i for i in Proxies.objects.all().delete()]
     return HttpResponse("done")
-
-#
-# def celery(request):
-#     response = tasks.add.delay(5,5)
-#     return HttpResponse(response.get(propagate=False))

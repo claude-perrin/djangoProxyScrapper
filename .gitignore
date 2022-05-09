@@ -12,11 +12,16 @@ media
 pip-log.txt
 pip-delete-this-directory.txt
 
+*.DS_Store
 .DS_Store
 
 
+dump.rdb
+
 Environments
 env/
+
+celerybeat-schedule
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can

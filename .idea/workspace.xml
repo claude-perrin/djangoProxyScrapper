@@ -2,6 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="745cfd21-aaaa-4340-9192-fa7204e3e8fa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/ProxyVerify.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/ProxyVerify.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/Statisctic/Statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Statistic/Statistic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/Statisctic/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/AbstractProxyAdapter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/AbstractProxyAdapter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Statistic/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/freeproxy_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/freeproxy_scrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/geonode_proxylist_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/geonode_proxylist_scrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/scrappers/hidemyname_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/hidemyname_scrapper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,20 +45,20 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Proxies/proxyhandler/Statisctic" />
+      <recent name="$PROJECT_DIR$/Proxies/Proxies" />
+      <recent name="$PROJECT_DIR$/Proxies/proxyhandler/static/js" />
+      <recent name="$PROJECT_DIR$/Proxies/proxyhandler/static" />
+      <recent name="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler" />
       <recent name="$PROJECT_DIR$/ViktorsCoolWebsite/Complete_Personal_Portfolio_Website_-_Html_Css_Javascript/Complete Personal Portfolio Website - Html, Css &amp; Javascript" />
       <recent name="$PROJECT_DIR$" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Proxies/proxyhandler/static/js" />
-      <recent name="$PROJECT_DIR$/Proxies/proxyhandler/static" />
-      <recent name="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler" />
-      <recent name="$PROJECT_DIR$/Proxies" />
-      <recent name="$PROJECT_DIR$/Proxies/proxyhandler" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.ProxyVerify">
+  <component name="RunManager" selected="Python.scratch">
     <configuration name="ProxyVerify" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="djangoProxy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -62,28 +73,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/ProxyVerify.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="models (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="djangoProxy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Proxies/proxyhandler" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Proxies/proxyhandler/models.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -136,7 +125,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="scratch_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="djangoProxy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -144,12 +133,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Proxies/proxyhandler" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Proxies/proxyhandler/views.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="djangoProxy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,11 +194,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ProxyVerify" />
         <item itemvalue="Python.scratch" />
+        <item itemvalue="Python.ProxyVerify" />
+        <item itemvalue="Python.scratch_3" />
+        <item itemvalue="Python.scratch_2" />
         <item itemvalue="Python.scratch_1" />
-        <item itemvalue="Python.models (1)" />
-        <item itemvalue="Python.views" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +222,7 @@
       <workItem from="1650806577891" duration="2880000" />
       <workItem from="1650978031095" duration="35871000" />
       <workItem from="1651255621012" duration="5932000" />
-      <workItem from="1651403024890" duration="25264000" />
+      <workItem from="1651403024890" duration="62178000" />
     </task>
     <servers />
   </component>
@@ -219,42 +230,46 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1651531113752">
+    <state x="563" y="331" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1651952085065">
+      <screen x="0" y="25" width="1680" height="1025" />
+    </state>
+    <state x="563" y="331" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1680.1025@0.25.1680.1025" timestamp="1651952085065" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1652039097596">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1651531113752" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1652039097596" />
     <state width="1638" height="364" key="GridCell.Tab.0.bottom/0.25.1680.1025@0.25.1680.1025" timestamp="1649364753414" />
-    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1651531113751">
+    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1652039097595">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1651531113751" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1652039097595" />
     <state width="1638" height="364" key="GridCell.Tab.0.center/0.25.1680.1025@0.25.1680.1025" timestamp="1649364753412" />
-    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1651531113750">
+    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1652039097595">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1651531113750" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1652039097595" />
     <state width="1638" height="364" key="GridCell.Tab.0.left/0.25.1680.1025@0.25.1680.1025" timestamp="1649364753411" />
-    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1651531113751">
+    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1652039097596">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1651531113751" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1652039097596" />
     <state width="1638" height="364" key="GridCell.Tab.0.right/0.25.1680.1025@0.25.1680.1025" timestamp="1649364753413" />
-    <state width="1638" height="364" key="GridCell.Tab.1.bottom" timestamp="1651530697224">
+    <state width="1638" height="364" key="GridCell.Tab.1.bottom" timestamp="1652038807625">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="364" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1651530697224" />
-    <state width="1638" height="364" key="GridCell.Tab.1.center" timestamp="1651530697222">
+    <state width="1638" height="364" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1652038807625" />
+    <state width="1638" height="364" key="GridCell.Tab.1.center" timestamp="1652038807623">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="364" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1651530697222" />
-    <state width="1638" height="364" key="GridCell.Tab.1.left" timestamp="1651530697222">
+    <state width="1638" height="364" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1652038807623" />
+    <state width="1638" height="364" key="GridCell.Tab.1.left" timestamp="1652038807622">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="364" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1651530697222" />
-    <state width="1638" height="364" key="GridCell.Tab.1.right" timestamp="1651530697223">
+    <state width="1638" height="364" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1652038807622" />
+    <state width="1638" height="364" key="GridCell.Tab.1.right" timestamp="1652038807624">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="364" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1651530697223" />
+    <state width="1638" height="364" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1652038807624" />
     <state x="359" y="175" key="SettingsEditor" timestamp="1651255715380">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -267,27 +282,27 @@
       <screen x="0" y="25" width="1680" height="1025" />
     </state>
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.25.1680.1025@0.25.1680.1025" timestamp="1651078753929" />
-    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1651584370080">
+    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1652034068628">
       <screen x="0" y="25" width="1680" height="1025" />
     </state>
-    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1650716323385" />
-    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.25.1680.1025@0.25.1680.1025" timestamp="1651584370080" />
+    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1652033815124" />
+    <state x="100" y="77" width="1480" height="871" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.25.1680.1025@0.25.1680.1025" timestamp="1652034068628" />
     <state x="541" y="143" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1651584737146">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="541" y="143" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1651584737146" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1651074221374">
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1651953800007">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1651074221374" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1651953800007" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
+          <line>34</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -295,10 +310,13 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/djangoProxy$freeproxy_scrapper.coverage" NAME="freeproxy_scrapper Coverage Results" MODIFIED="1648852778415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler/scrappers" />
     <SUITE FILE_PATH="coverage/djangoProxy$geonode_proxylist_scrapper.coverage" NAME="geonode_proxylist_scrapper Coverage Results" MODIFIED="1648849090408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler/scrappers" />
+    <SUITE FILE_PATH="coverage/djangoProxy$scratch_3.coverage" NAME="scratch_3 Coverage Results" MODIFIED="1652016268475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/djangoProxy$urls.coverage" NAME="urls Coverage Results" MODIFIED="1648841167497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/scrapper" />
-    <SUITE FILE_PATH="coverage/djangoProxy$ProxyVerify.coverage" NAME="ProxyVerify Coverage Results" MODIFIED="1651531107245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier" />
-    <SUITE FILE_PATH="coverage/djangoProxy$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1651531088457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
-    <SUITE FILE_PATH="coverage/djangoProxy$scratch_1.coverage" NAME="scratch_1 Coverage Results" MODIFIED="1649106205724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/djangoProxy$ProxyVerify.coverage" NAME="ProxyVerify Coverage Results" MODIFIED="1652016518232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier" />
+    <SUITE FILE_PATH="coverage/djangoProxy$scratch_2.coverage" NAME="scratch_2 Coverage Results" MODIFIED="1652016050529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/djangoProxy$tasks.coverage" NAME="tasks Coverage Results" MODIFIED="1651959921179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler" />
+    <SUITE FILE_PATH="coverage/djangoProxy$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1652039095916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/djangoProxy$scratch_1.coverage" NAME="scratch_1 Coverage Results" MODIFIED="1652012900558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/djangoProxy$models__1_.coverage" NAME="models (1) Coverage Results" MODIFIED="1648897349185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler" />
     <SUITE FILE_PATH="coverage/djangoProxy$models.coverage" NAME="models Coverage Results" MODIFIED="1648841417361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/scrapper" />
     <SUITE FILE_PATH="coverage/djangoProxy$views.coverage" NAME="views Coverage Results" MODIFIED="1648897333272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Proxies/proxyhandler" />

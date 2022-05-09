@@ -5,13 +5,12 @@ import asyncio
 import aiohttp
 from tqdm import tqdm
 
-from .config import *
+TEST_URL = 'http://127.0.0.1:8000/'
+VERIFICATION_NUMBER = 5
+TIMEOUT = 4
+USER_AGENT = {"User-Agent": "Opera/9.80 (X11; Linux x86_64; U; de) Presto/2.2.15 Version/10.00"}
 
-
-# TEST_URL = 'http://127.0.0.1:8000/'
-# VERIFICATION_NUMBER = 5
-# TIMEOUT = 4
-# USER_AGENT = {"User-Agent": "Opera/9.80 (X11; Linux x86_64; U; de) Presto/2.2.15 Version/10.00"}
+"{'socket': '167.71.5.83:3128', 'success': 0, 'speed': 0}"
 
 
 class ProxyVerifier:
@@ -26,10 +25,10 @@ class ProxyVerifier:
         return f'http://{socket}'
 
     def run(self):
-        asyncio.run(self.session_creator())
+        asyncio.run(self.start_verification())
         return self
 
-    async def session_creator(self):
+    async def start_verification(self):
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=TIMEOUT)) as client:
             to_verify_proxies_generator = (self.check_proxy(client, socket) for socket in tqdm(self.proxies_to_check))
             await asyncio.gather(*to_verify_proxies_generator)
@@ -52,7 +51,7 @@ class ProxyVerifier:
         try:
             return await client.get(url, proxy=proxy, timeout=TIMEOUT)
         except self.ProxyNotResponding:
-            return -1
+            return False
 
     @property
     def failed_proxies(self):
@@ -71,7 +70,7 @@ class ProxyVerifier:
 if __name__ == '__main__':
     list = ["167.71.5.83:3128"]
     start = time.perf_counter()
-    v = ProxyVerifier(list * 100)
+    v = ProxyVerifier(list * 10)
     v.run()
     print(v.verified_proxies)
     print(time.perf_counter() - start)
