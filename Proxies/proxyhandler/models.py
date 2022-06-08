@@ -5,7 +5,8 @@ from django.db import models
 from django.utils import timezone
 
 
-class Proxies(models.Model):
+
+class Proxy(models.Model):
     socket = models.TextField(blank=False, unique=True, default=None)
     country = models.TextField(default=None)
     anonymity = models.TextField(default=None)
@@ -21,7 +22,6 @@ class Proxies(models.Model):
     def get_info(self):
         return {"socket": self.socket, "success": self.success, "speed": self.speed, 'protocol': self.protocol,
                 "updated": self.updated}
-
 
     def get_socket(self):
         return self.socket

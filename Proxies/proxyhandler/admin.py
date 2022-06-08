@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Proxies
+from .models import Proxy
 
-admin.site.register(Proxies)
+admin.site.register(Proxy)

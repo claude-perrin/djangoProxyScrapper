@@ -1,3 +1,19 @@
+"""
+Statistic:
+	1) procent of working proxies, e.g. from 300 scraped sockets only 20 are working
+		division on http and https
+	2) average speed
+	3) optional: the fastest situation, e.g. UK, ROM, FR
+	4) the best proxy list provider, name of website, e.g. free-proxy-list
+
+"""
+# TODO CELERY execution
+# TODO threads in scrapper
+# TODO do something else during verification
+# TODO normal statistic
+# TODO put on the server
+# TODO prometheus
+
 import time
 from datetime import datetime
 import asyncio
@@ -9,8 +25,6 @@ TEST_URL = 'http://127.0.0.1:8000/'
 VERIFICATION_NUMBER = 5
 TIMEOUT = 4
 USER_AGENT = {"User-Agent": "Opera/9.80 (X11; Linux x86_64; U; de) Presto/2.2.15 Version/10.00"}
-
-"{'socket': '167.71.5.83:3128', 'success': 0, 'speed': 0}"
 
 
 class ProxyVerifier:
@@ -55,11 +69,11 @@ class ProxyVerifier:
 
     @property
     def failed_proxies(self):
-        return {i for i in self._verified_proxies if i['success'] == 0}
+        return {i for i in self.verified_proxies if i['success'] == 0}
 
     @property
     def succeeded_proxies(self):
-        return {i for i in self._verified_proxies if i['success'] > 0}
+        return {i for i in self.verified_proxies if i['success'] > 0}
 
     @property
     def verified_proxies(self):
@@ -72,5 +86,5 @@ if __name__ == '__main__':
     start = time.perf_counter()
     v = ProxyVerifier(list * 10)
     v.run()
-    print(v.verified_proxies)
+    print(v.succeeded_proxies)
     print(time.perf_counter() - start)
