@@ -1,4 +1,10 @@
 class Statistic:
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super(Statistic, cls).__new__(cls)
+        return cls.instance
+
     @staticmethod
     def success_percentage(proxies):
         success_list = [i["success"] for i in proxies]
@@ -10,3 +16,8 @@ class Statistic:
         if speed:
             return round(sum(speed) / len(speed), 3)
         return None
+
+    @staticmethod
+    def count_providers(providers):
+        return [{i: providers.count(i)} for i in set(providers)]
+

@@ -2,18 +2,21 @@ import abc
 
 
 class ProxyInterfaceAdapter(abc.ABC):
-    Proxies = list()
-
     def __new__(cls):
-        if not hasattr(cls, 'instance'):
-            cls.instance = super(ProxyInterfaceAdapter, cls).__new__(cls)
-        return cls.instance
+        cls_instance = super(ProxyInterfaceAdapter, cls).__new__(cls)
+        cls_instance._proxies = []
+        return cls_instance
 
     @abc.abstractmethod
     def scrap(self):
         """
         Using url gets proxies
         :return: list of raw proxies
+        """
+
+    @abc.abstractmethod
+    def request(self):
+        """
         """
 
     @abc.abstractmethod
@@ -29,3 +32,7 @@ class ProxyInterfaceAdapter(abc.ABC):
         Using Regex, fit scrapped data in proper format
         :return: Satisfiable date format
                 """
+
+    @property
+    def get_proxies(self):
+        return self._proxies

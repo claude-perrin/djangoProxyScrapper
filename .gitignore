@@ -15,6 +15,8 @@ pip-delete-this-directory.txt
 *.DS_Store
 .DS_Store
 
+run_server
+
 
 dump.rdb
 

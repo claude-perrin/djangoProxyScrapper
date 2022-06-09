@@ -1,18 +1,19 @@
 import csv
+import itertools
 
 from django.db import IntegrityError
-from django.http import HttpResponse,  FileResponse
+from django.http import HttpResponse, FileResponse
 
 from django.utils import timezone
 
 from .ProxyVerifier.ProxyVerify import ProxyVerifier
-from .Scraper import freeproxy_scrapper as fp
+from .Scraper import freeproxy_scrapper as fp, geonode_proxylist_scrapper as geo
 from .models import Proxy
 from .Statistic.Statistic import Statistic
 from django.db.models import Max
 
-
 from django.shortcuts import render
+from .helper import ThreadWithReturnValue
 
 
 def main_page(request):
@@ -20,18 +21,23 @@ def main_page(request):
 
 
 def scrap(request):
-    #TODO Thread to start both scrappers synch
-    fp_proxies = fp.FreeProxyScrapper().scrap()
-    for proxy in fp_proxies:
+    pool = list()
+    pool.append(ThreadWithReturnValue(target=fp.FreeProxyScrapper().scrap))     # -------> threads
+    pool.append(ThreadWithReturnValue(target=geo.GeonodeProxyScrapper().scrap))
+
+    [i.start() for i in pool]
+    scrapped_proxies = itertools.chain.from_iterable([i.join() for i in pool])   # ------> ranges
+
+    for proxy in scrapped_proxies:
         try:
             Proxy(socket=proxy["socket"], country=proxy["country"], anonymity=proxy["anonymity"],
-                  protocol=proxy["protocol"]).save()
+                  protocol=proxy["protocol"], scraper_name=proxy["scraper_name"]).save()
         except IntegrityError as exc:
             print(exc)
 
     context = {
         'main_page': "Scrapped proxies",
-        'proxies': fp_proxies,
+        'proxies': scrapped_proxies,
     }
     return render(request, 'proxyhandler/show.html', context)
 
@@ -54,9 +60,12 @@ def verify(request):
 
 
 def statistic(request):
-    s = Statistic
-    successed_proxies = Proxy.objects.filter(success__gt=0)
+    successed_proxies = [i.get_info() for i in Proxy.objects.filter(success__gt=0)]
     proxy_max_speed = Proxy.objects.aggregate(Max('speed'))
+
+    providers = [i.scraper_name for i in Proxy.objects.filter(success__gt=0)]
+
+    count_of_successful_proxies_by_provider = Statistic.count_providers(providers)
 
     Statistic.success_percentage(successed_proxies)
     Statistic.average_speed(successed_proxies)

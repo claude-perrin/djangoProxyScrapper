@@ -7,8 +7,6 @@ Statistic:
 	4) the best proxy list provider, name of website, e.g. free-proxy-list
 
 """
-# TODO CELERY execution
-# TODO threads in scrapper
 # TODO do something else during verification
 # TODO normal statistic
 # TODO put on the server
