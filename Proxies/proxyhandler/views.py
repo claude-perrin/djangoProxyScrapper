@@ -12,7 +12,7 @@ from .models import Proxy
 from .Statistic.Statistic import Statistic
 from django.db.models import Max
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .helper import ThreadWithReturnValue
 
 
@@ -22,12 +22,10 @@ def main_page(request):
 
 def scrap(request):
     pool = list()
-    pool.append(ThreadWithReturnValue(target=fp.FreeProxyScrapper().scrap))     # -------> threads
+    pool.append(ThreadWithReturnValue(target=fp.FreeProxyScrapper().scrap))  # -------> threads
     pool.append(ThreadWithReturnValue(target=geo.GeonodeProxyScrapper().scrap))
-
     [i.start() for i in pool]
-    scrapped_proxies = itertools.chain.from_iterable([i.join() for i in pool])   # ------> ranges
-
+    scrapped_proxies = itertools.chain.from_iterable([i.join() for i in pool])  # ------> ranges
     for proxy in scrapped_proxies:
         try:
             Proxy(socket=proxy["socket"], country=proxy["country"], anonymity=proxy["anonymity"],
@@ -35,11 +33,7 @@ def scrap(request):
         except IntegrityError as exc:
             print(exc)
 
-    context = {
-        'main_page': "Scrapped proxies",
-        'proxies': scrapped_proxies,
-    }
-    return render(request, 'proxyhandler/show.html', context)
+    return redirect('http://127.0.0.1:8000/')
 
 
 def verify(request):
@@ -61,14 +55,24 @@ def verify(request):
 
 def statistic(request):
     successed_proxies = [i.get_info() for i in Proxy.objects.filter(success__gt=0)]
-    proxy_max_speed = Proxy.objects.aggregate(Max('speed'))
+    proxy_max_speed = Proxy.objects.aggregate(Max('speed'))['speed__max']
 
     providers = [i.scraper_name for i in Proxy.objects.filter(success__gt=0)]
 
     count_of_successful_proxies_by_provider = Statistic.count_providers(providers)
 
-    Statistic.success_percentage(successed_proxies)
-    Statistic.average_speed(successed_proxies)
+    percentage = Statistic.success_percentage(i.get_info() for i in Proxy.objects.all())
+    average_speed = Statistic.average_speed(successed_proxies)
+
+    data = [proxy_max_speed, percentage, average_speed, count_of_successful_proxies_by_provider]
+    print(data)
+
+    context = {
+        'main_page': "Statistic performed on proxies",
+        'attributes': data,
+    }
+
+    return render(request, 'proxyhandler/statistic.html', context)
 
 
 def show(request):
@@ -92,7 +96,7 @@ def download_csv(request):
     return response
 
 
-def download_txt(request):
+def download_txt(request):  # ------------------> Filesystem
     data = {i.socket + '\n' for i in Proxy.objects.filter(success__gt=0)}
     response = FileResponse(data, content_type='application/text charset=utf-8')
     response['Content-Disposition'] = 'attachment; filename="working_proxies.txt"'
@@ -100,8 +104,5 @@ def download_txt(request):
 
 
 def test(request):
-    # obj = Proxies.objects.get(socket="202.162.37.68:8080")
-    # x = obj.success + 1
-    # Proxies.objects.filter(socket="202.162.37.68:8080").update(success=x)
-    proxies = [i for i in Proxy.objects.all().delete()]
+    [i for i in Proxy.objects.all().delete()]
     return HttpResponse("done")

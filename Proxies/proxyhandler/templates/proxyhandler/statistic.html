@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table, th, td {
+        font-family: "Apple SD Gothic Neo", serif;
+        border: 1px solid black;
+    }
+</style>
+<body>
+
+<h1 style="font-family: 'Apple SD Gothic Neo',serif">{{main_page}}</h1>
+
+<table style="width:100%">
+    <tr>
+        <th style="font-size: 150%"> Maximum speed</th>
+        <th style="font-size: 150%"> Working Proxies Percentage</th>
+        <th style="font-size: 150%"> Average speed</th>
+        <th style="font-size: 150%"> The best provider</th>
+
+    </tr>
+
+    <tr>
+        {% for attribute in attributes %}
+        <th>
+            {{attribute}}
+        </th>
+        {% endfor %}
+    </tr>
+
+</table>
+</body>
+</html>

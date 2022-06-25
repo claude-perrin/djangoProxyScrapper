@@ -5,6 +5,7 @@ class ProxyInterfaceAdapter(abc.ABC):
     def __new__(cls):
         cls_instance = super(ProxyInterfaceAdapter, cls).__new__(cls)
         cls_instance._proxies = []
+        cls_instance._TIMEOUT = 5
         return cls_instance
 
     @abc.abstractmethod
@@ -17,6 +18,7 @@ class ProxyInterfaceAdapter(abc.ABC):
     @abc.abstractmethod
     def request(self):
         """
+        makes a request and handles exception
         """
 
     @abc.abstractmethod

@@ -1,4 +1,5 @@
 import requests
+from requests import Timeout
 
 from .AbstractProxyAdapter import ProxyInterfaceAdapter
 import re
@@ -9,18 +10,19 @@ class GeonodeProxyScrapper(ProxyInterfaceAdapter):
 
     def scrap(self):
         response = self.request()
-        proxies = response.json()
-        self.make_proxies(proxies)
+        if response:
+            proxies = response.json()
+            self.make_proxies(proxies)
         return self._proxies
+
 
     def request(self):
         try:
-            return requests.get(self.URL)
-        except requests.exceptions.ConnectionError:
+            return requests.get(self.URL, timeout=self._TIMEOUT)
+        except (requests.exceptions.ConnectionError, Timeout):
             return None
 
     def get_proper_date_format(self, data):
-        print(data)
         date = re.compile(r".+?(?=T)+").search(data).group()
         time = re.compile(r"[^T]+?(?=Z)").search(data).group()
         return date + ' ' + time

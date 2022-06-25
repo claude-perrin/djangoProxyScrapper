@@ -19,4 +19,6 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('proxyhandler.urls')),
+    path('celery-progress', include('celery_progress.urls')),
+
 ]

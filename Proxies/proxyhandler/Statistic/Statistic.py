@@ -12,7 +12,7 @@ class Statistic:
 
     @staticmethod
     def average_speed(proxies):
-        speed = [i["speed"] for i in proxies if i["speed"] is not 0]
+        speed = [i["speed"] for i in proxies if i["speed"] != 0]
         if speed:
             return round(sum(speed) / len(speed), 3)
         return None
@@ -20,4 +20,3 @@ class Statistic:
     @staticmethod
     def count_providers(providers):
         return [{i: providers.count(i)} for i in set(providers)]
-

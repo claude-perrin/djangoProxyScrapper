@@ -1,29 +1,10 @@
-"""
-Statistic:
-	1) procent of working proxies, e.g. from 300 scraped sockets only 20 are working
-		division on http and https
-	2) average speed
-	3) optional: the fastest situation, e.g. UK, ROM, FR
-	4) the best proxy list provider, name of website, e.g. free-proxy-list
 
-"""
-# TODO do something else during verification
-# TODO normal statistic
-# TODO put on the server
-# TODO prometheus
-
-import time
 from datetime import datetime
 import asyncio
 
 import aiohttp
 from tqdm import tqdm
-
-TEST_URL = 'http://127.0.0.1:8000/'
-VERIFICATION_NUMBER = 5
-TIMEOUT = 4
-USER_AGENT = {"User-Agent": "Opera/9.80 (X11; Linux x86_64; U; de) Presto/2.2.15 Version/10.00"}
-
+from .config import *
 
 class ProxyVerifier:
     ProxyNotResponding = (asyncio.TimeoutError, aiohttp.ClientError)
@@ -76,13 +57,3 @@ class ProxyVerifier:
     @property
     def verified_proxies(self):
         return self._verified_proxies
-
-
-# asyncio.run same as loop.run_until_complete
-if __name__ == '__main__':
-    list = ["167.71.5.83:3128"]
-    start = time.perf_counter()
-    v = ProxyVerifier(list * 10)
-    v.run()
-    print(v.succeeded_proxies)
-    print(time.perf_counter() - start)
