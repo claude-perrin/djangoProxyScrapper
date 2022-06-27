@@ -1,10 +1,11 @@
-
 from datetime import datetime
 import asyncio
 
 import aiohttp
 from tqdm import tqdm
+
 from .config import *
+
 
 class ProxyVerifier:
     ProxyNotResponding = (asyncio.TimeoutError, aiohttp.ClientError)

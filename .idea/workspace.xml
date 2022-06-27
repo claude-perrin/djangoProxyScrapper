@@ -3,18 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="745cfd21-aaaa-4340-9192-fa7204e3e8fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/Proxies/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/Proxies/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/Proxies/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/Proxies/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/ProxyVerify.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/ProxyVerify.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/ProxyVerifier/logs.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/AbstractProxyAdapter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/AbstractProxyAdapter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/freeproxy_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/freeproxy_scrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/geonode_proxylist_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Scraper/geonode_proxylist_scrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/Statistic/Statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/Statistic/Statistic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/templates/proxyhandler/show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxies/proxyhandler/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +14,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -233,7 +223,7 @@
       <workItem from="1655068485982" duration="1342000" />
       <workItem from="1655110420219" duration="823000" />
       <workItem from="1655120474756" duration="1284000" />
-      <workItem from="1656180223780" duration="2392000" />
+      <workItem from="1656180223780" duration="4870000" />
     </task>
     <servers />
   </component>

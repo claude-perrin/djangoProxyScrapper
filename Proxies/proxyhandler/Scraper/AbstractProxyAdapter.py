@@ -1,11 +1,13 @@
 import abc
 
+REQUEST_TIMEOUT = 5
+
 
 class ProxyInterfaceAdapter(abc.ABC):
     def __new__(cls):
         cls_instance = super(ProxyInterfaceAdapter, cls).__new__(cls)
         cls_instance._proxies = []
-        cls_instance._TIMEOUT = 5
+        cls_instance._TIMEOUT = REQUEST_TIMEOUT
         return cls_instance
 
     @abc.abstractmethod
